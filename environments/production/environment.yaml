@@ -1,11 +1,16 @@
 #
-# Configuration for production environment
+# Configuration for staging environment
 #
 version: 1.0
 app:
   # build id to deploy. if 'version' is commented out, the application is not deployed
-  version: ""
-  
+  version: "1e1939f3-a3ca-458d-ac26-bd02b4ae58bf"
+
+  # DB2 service
+  services:
+    - type: db2
+      name: Db2-nd-mei-easej
+    
   # number of instances
   instances:
     # min number of instances. can be 0 for scale to 0. default to 1.
@@ -23,16 +28,16 @@ app:
     - name: JVM_ARGS 
       value: "-Xms=1024m"
     #- name: WLP_LOGGING_CONSOLE_FORMAT
-    #  value: DEV     
+    #  value: DEV    
 
   # List of variables that can be referenced in the server.xml
   variables:
     - name: io_openliberty_sample_system_inMaintenance
       value: "false"
-    #uncomment when using Dev instance - name: OIDC_DISCOVERY_HOST
-    #  value: "https://mei-easej-db2-academic-way-8529.staging.us-east.c2.appflow.dev.ibmappdomain.cloud/"
+    #uncomment when using Dev instnace - name: OIDC_DISCOVERY_HOST
+    # value: "https://mei-easej-db2-academic-way-8529.staging.us-east.c2.appflow.dev.ibmappdomain.cloud/"
     - name: OIDC_DISCOVERY_HOST
-      value: https://mei-stg-db2test-ha0k7v8wf4.us-east.c2.appflow.test.ibmappdomain.cloud/
+      value: https://mei-stg-db2test-ha0k7v8wf4.staging.us-east.c2.appflow.test.ibmappdomain.cloud/  
     - name: db2HostName
       value: "2f3279a5-73d1-4859-88f0-a6c3e6b4b907.c3n41cmd0nqnrk39u98g.databases.appdomain.cloud"
     - name: db2Port
@@ -41,3 +46,4 @@ app:
       value: "bludb"
     - name: db2UserName
       value: "zpb97924"
+      
